@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'hello world'
         sh '''#!/bin/bash
-        apt update && apt install -y nodejs
+        sudo apt update && sudo apt install -y nodejs
         '''
         sh 'curl -O -L https://npmjs.org/install.sh'
         sh 'sh install.sh'
