@@ -4,7 +4,7 @@ pipeline {
     stage('master') {
       steps {
         echo 'hello world'
-        sh 'npm install newman'
+        sh 'npm -g install newman'
         sh 'newman run /NopService.postman_collection.json'
       }
     }
