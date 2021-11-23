@@ -1,0 +1,1909 @@
+{
+	"info": {
+		"_postman_id": "cb4ef3f5-8162-4711-8bcc-a9d04e8ceb5e",
+		"name": "NopService",
+		"description": "\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPaymentMethodCollection - happy flow",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test pass\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <tem:GetPaymentMethodCollection>\n         <!--Optional:-->\n         <tem:usernameOrEmail>jcw.laarhoven@student.avans.nl</tem:usernameOrEmail>\n         <!--Optional:-->\n         <tem:userPassword>hLK4BYs66hyLkeL</tem:userPassword>\n      </tem:GetPaymentMethodCollection>\n   </soapenv:Body>\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetPaymentMethodCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetPaymentMethodCollection - email wrong",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Email wrong flow\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include('<faultstring xml:lang=\"en-US\">Not allowed</faultstring>');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <tem:GetPaymentMethodCollection>\r\n         <!--Optional:-->\r\n         <tem:usernameOrEmail>wrong email</tem:usernameOrEmail>\r\n         <!--Optional:-->\r\n         <tem:userPassword>hLK4BYs66hyLkeL</tem:userPassword>\r\n      </tem:GetPaymentMethodCollection>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetPaymentMethodCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetPaymentMethodCollection - password wrong",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Email wrong flow\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include('<faultstring xml:lang=\"en-US\">Not allowed</faultstring>');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <tem:GetPaymentMethodCollection>\r\n         <!--Optional:-->\r\n         <tem:usernameOrEmail>jcw.laarhoven@student.avans.nl</tem:usernameOrEmail>\r\n         <!--Optional:-->\r\n         <tem:userPassword>wrong password</tem:userPassword>\r\n      </tem:GetPaymentMethodCollection>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetPaymentMethodCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetPaymentMethodCollection - SOAP error",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Email wrong flow\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include('<faultstring xml:lang=\"en-US\">Not allowed</faultstring>');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <tem:GetPaymentMethodCollection>\r\n         <!--Optional:-->\r\n         <tem:usernameOrEmail>jcw.laarhoven@student.avans.nl</tem:usernameOrEmail>\r\n         <!--Optional:-->\r\n         <tem:userPassword>hLK4BYs66hyLkeL</tem:userPassword>\r\n      </tem:GetPaymentMethodCollection>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetPaymentMethodCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetPaymentMethodCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetPaymentMethodCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "ProductList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/ProductList"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ProductList</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ProductList response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/ProductList"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ProductList</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ProductListResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "NewProductList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/NewProductList"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found NewProductList</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "NewProductList response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/NewProductList"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found NewProductList</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found NewProductListResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetProductBySku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetProductBySku"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductBySku</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetProductBySku response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetProductBySku"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductBySku</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductBySkuResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetProductAttributes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetProductAttributes"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributes</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetProductAttributes response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetProductAttributes"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributes</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributesResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetProductAttributesValue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetProductAttributesValue"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributesValue</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetProductAttributesValue response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetProductAttributesValue"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributesValue</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetProductAttributesValueResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetCategoryCollection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetCategoryCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCategoryCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCategoryCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetCategoryCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCategoryCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCategoryCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetManufacturerCollection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetManufacturerCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetManufacturerCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetManufacturerCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetManufacturerCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetManufacturerCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetManufacturerCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetAddress",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetAddress"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetAddress</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAddress response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetAddress"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetAddress</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetAddressResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "AddNewAddress",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/AddNewAddress"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddNewAddress</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "AddNewAddress response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/AddNewAddress"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddNewAddress</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddNewAddressResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "AddToCart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/AddToCart"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddToCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "AddToCart response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/AddToCart"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddToCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found AddToCartResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "DeleteFromCart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/DeleteFromCart"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found DeleteFromCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteFromCart response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/DeleteFromCart"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found DeleteFromCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found DeleteFromCartResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetShoppingCart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetShoppingCart"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetShoppingCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetShoppingCart response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetShoppingCart"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetShoppingCart</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetShoppingCartResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetCountry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetCountry"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCountry</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCountry response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetCountry"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCountry</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetCountryResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetStateProvince",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetStateProvince"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetStateProvince</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetStateProvince response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetStateProvince"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetStateProvince</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetStateProvinceResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "CreateOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/CreateOrder"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found CreateOrder</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateOrder response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/CreateOrder"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found CreateOrder</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found CreateOrderResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "GetOrderCollection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/INopService/GetOrderCollection"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetOrderCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BasicHttpBinding_INopServiceBaseUrl}}/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+					"host": [
+						"{{BasicHttpBinding_INopServiceBaseUrl}}"
+					],
+					"path": [
+						"Plugins",
+						"Misc.WebServicesCustomer",
+						"Remote",
+						"NopService.svc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetOrderCollection response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/INopService/GetOrderCollection"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetOrderCollection</error>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc",
+							"protocol": "http",
+							"host": [
+								"demowebshop",
+								"tricentis",
+								"com"
+							],
+							"path": [
+								"Plugins",
+								"Misc.WebServicesCustomer",
+								"Remote",
+								"NopService.svc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found GetOrderCollectionResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BasicHttpBinding_INopServiceBaseUrl",
+			"value": "http://demowebshop.tricentis.com"
+		},
+		{
+			"key": "email",
+			"value": ""
+		}
+	]
+}
