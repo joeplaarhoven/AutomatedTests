@@ -10,5 +10,8 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y docker-ce-cli
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN apt install -y nodejs && apt install -y npm
+WORKDIR /usr/app
+COPY ./ /usr/app
+RUN npm install newman
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.1 docker-workflow:1.26"
