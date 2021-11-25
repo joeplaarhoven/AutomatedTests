@@ -6,7 +6,7 @@ pipeline {
     stage('master') {
       steps {
         echo 'hello world'
-        sh 'chmod 777 /usr/app/node_modules/'
+        sh 'pwd'
         sh 'npm install -g newman'
         sh 'newman run api_test/NopService.postman_collection.json'
       }
