@@ -7,8 +7,8 @@ pipeline {
       steps {
         echo 'hello world'
         sh 'pwd'
-        sh 'npm install -g newman'
-        sh 'newman run api_test/NopService.postman_collection.json'
+        sh 'npm install newman'
+        sh 'newman run /var/jenkins_home/workspace/AutomatedTests_master/api_test/NopService.postman_collection.json'
       }
     }
 
