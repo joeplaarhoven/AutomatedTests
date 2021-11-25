@@ -7,6 +7,7 @@ pipeline {
       steps {
         echo 'hello world'
         sh 'npm install newman'
+        sh 'npm ls'
         sh  'newman run /NopService.postman_collection.json'
       }
     }
