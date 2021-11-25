@@ -13,5 +13,4 @@ RUN apt install -y nodejs && apt install -y npm
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install newman
-USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.1 docker-workflow:1.26"
