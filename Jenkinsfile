@@ -9,6 +9,7 @@ pipeline {
     stage('API test') {
       steps {
         sh 'npm install -g newman'
+        sh 'npm install -g newman-reporter-htmlextra'
         sh 'newman run /var/jenkins_home/workspace/AutomatedTests_master/api_test/NopService.postman_collection.json --reporters=htmlextra'
       }
     }
