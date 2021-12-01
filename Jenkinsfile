@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Unit test') {
       steps{
-        echo "Unit test"
+        sh 'mvn test'
       }
     }
     stage('API test') {
