@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DetermineShippingCosts.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UnitTest</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">DetermineShippingCosts.java</span></div><h1>DetermineShippingCosts.java</h1><pre class="source lang-java linenums"><span class="fc" id="L1">public class DetermineShippingCosts {</span>
+    public double determineShippingCosts(boolean calculateShippingCosts, String typeOfShippingCosts, double totalPrice) {
+        double result;
+<span class="fc bfc" id="L4" title="All 2 branches covered.">        if (calculateShippingCosts) {</span>
+<span class="fc bfc" id="L5" title="All 2 branches covered.">            if (totalPrice &gt; 1500.00) {</span>
+<span class="fc" id="L6">                result = 0.00;</span>
+            } else {
+<span class="fc bfc" id="L8" title="All 5 branches covered.">                switch (typeOfShippingCosts) {</span>
+                    case ShippingType.GROUND:
+<span class="fc" id="L10">                        result = 100.00;</span>
+<span class="fc" id="L11">                        break;</span>
+                    case ShippingType.IN_STORE:
+<span class="fc" id="L13">                        result = 50.00;</span>
+<span class="fc" id="L14">                        break;</span>
+                    case ShippingType.NEXT_DAY_AIR:
+<span class="fc" id="L16">                        result = 250.00;</span>
+<span class="fc" id="L17">                        break;</span>
+                    case ShippingType.SECOND_DAY_AIR:
+<span class="fc" id="L19">                        result = 125.00;</span>
+<span class="fc" id="L20">                        break;</span>
+                    default:
+<span class="fc" id="L22">                        result = 0.00;</span>
+                }
+            }
+        }
+        else {
+<span class="fc" id="L27">            result = 0.00;</span>
+        }
+
+<span class="fc" id="L30">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
