@@ -5,7 +5,8 @@ pipeline {
     agent { docker { image 'maven' } }
       steps{
         dir("/var/jenkins_home/workspace/AutomatedTests_master/unit_test"){
-            sh 'mvn test'
+        sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify -Dmaven.test.failure.ignore=true -Dsonar.jacoco.reportPaths=${env.WORKSPACE}/target/jacoco.exec"
+//             sh 'mvn test'
         }
       }
     }
