@@ -5,18 +5,9 @@ pipeline {
     agent { docker { image 'maven' } }
       steps{
         dir("/var/jenkins_home/workspace/AutomatedTests_master/unit_test"){
-
-          sh 'mvn test'
-
-
+          sh 'mvn jacoco:report'
         }
-
       }
-      post {
-                      always {
-                          junit 'target/surefire-reports/*.xml'
-                      }
-                  }
     }
     stage('API test') {
       agent { docker { image 'node:14-alpine' } }
