@@ -4,7 +4,7 @@ pipeline {
     stage('Unit test') {
     agent { docker { image 'maven' } }
       steps{
-        dir("/unit_test"){
+        dir("/var/jenkins_home/workspace/AutomatedTests_master/unit_test"){
             sh 'mvn test'
         }
       }
