@@ -5,12 +5,14 @@ pipeline {
     agent { docker { image 'maven' } }
       steps{
         dir("/var/jenkins_home/workspace/AutomatedTests_master/unit_test"){
-            step([$class: 'JacocoPublisher',
-                  execPattern: 'target/*.exec',
-                  classPattern: 'target/classes',
-                  sourcePattern: 'src/main/java',
-                  exclusionPattern: 'src/test*'
-            ])
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
       }
     }
