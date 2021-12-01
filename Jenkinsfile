@@ -2,6 +2,7 @@ pipeline {
   agent none
   stages {
     stage('Unit test') {
+    agent { docker { image 'maven' } }
       steps{
         sh 'mvn test'
       }
