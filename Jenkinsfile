@@ -27,7 +27,7 @@ pipeline {
     stage('GUI test') {
       agent { docker { image 'katalonstudio/katalon' } }
       steps {
-        sh 'katalonc  -projectPath="/var/jenkins_home/workspace/AutomatedTests_master/gui_test/DemoWebshopGUITest.prj" -browserType="Chrome" -testSuitePath="/var/jenkins_home/workspace/AutomatedTests_master/gui_test/GUI_Test_Suite" -apiKey="909a5194-ea06-4745-8a5e-59a676c786f3" '
+        sh 'katalonc  -projectPath="/var/jenkins_home/workspace/AutomatedTests_master/gui_test/DemoWebshopGUITest.prj" -browserType="Chrome" -testSuitePath="GUI_Test_Suite" -apiKey="909a5194-ea06-4745-8a5e-59a676c786f3" '
       }
     }
   }
