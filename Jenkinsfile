@@ -26,8 +26,8 @@ pipeline {
     }
     stage('GUI test') {
       steps {
-        dir('/Users/<user_name>/Downloads/ci-samples-master'){
-            sh 'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/gui_test'
+        dir('/var/jenkins_home/workspace/AutomatedTests_master/gui_test'){
+            sh 'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=DemoWebshopGUITest.prj'
         }
       }
     }
