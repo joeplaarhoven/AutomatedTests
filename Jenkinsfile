@@ -28,7 +28,8 @@ pipeline {
       agent { docker { image 'katalonstudio/katalon' } }
       steps {
         dir('/var/jenkins_home/workspace/AutomatedTests_master/gui_test'){
-            sh 'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=DemoWebshopGUITest.prj'
+//           sh 'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=DemoWebshopGUITest.prj'
+          sh 'katalonc  -projectPath="DemoWebshopGUITest.prj" '
         }
       }
     }
