@@ -28,6 +28,7 @@ pipeline {
       agent { docker { image 'katalonstudio/katalon' } }
       steps {
         dir('/var/jenkins_home/workspace/AutomatedTests_master'){
+          pwd()
           sh 'katalonc  -projectPath="gui_test/DemoWebshopGUITest.prj" -apiKey="909a5194-ea06-4745-8a5e-59a676c786f3" '
         }
       }
