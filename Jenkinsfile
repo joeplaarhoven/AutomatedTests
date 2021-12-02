@@ -26,7 +26,9 @@ pipeline {
     }
     stage('GUI test') {
       steps {
-        echo "GUI test"
+        dir('/Users/<user_name>/Downloads/ci-samples-master'){
+            sh 'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/gui_test'
+        }
       }
     }
   }
