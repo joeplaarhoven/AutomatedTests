@@ -28,6 +28,7 @@ pipeline {
       agent { docker { image 'katalonstudio/katalon' } }
       steps {
         sh 'cp -rf /var/jenkins_home/workspace/AutomatedTests_master/gui_test/chromedriver /opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver'
+        sh '/opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver --version'
         sh 'katalonc  -projectPath="/var/jenkins_home/workspace/AutomatedTests_master/gui_test/DemoWebshopGUITest.prj" -browserType="Chrome" -testSuitePath="GUI_Test_Suite" -apiKey="909a5194-ea06-4745-8a5e-59a676c786f3" '
       }
     }
