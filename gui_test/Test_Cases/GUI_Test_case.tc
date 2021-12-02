@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>GUI Test case</name>
+   <name>GUI_Test_case</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>566ddfa6-a926-43bb-9f58-edea1b09363a</testCaseGuid>
