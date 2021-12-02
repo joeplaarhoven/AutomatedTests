@@ -25,7 +25,7 @@ pipeline {
       }
     }
     stage('GUI test') {
-      agent { docker { image 'katalonstudio/katalon' } }
+      agent any
       steps {
         sh 'cp -rf /var/jenkins_home/workspace/AutomatedTests_master/gui_test/chromedriver /opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver'
         sh '/opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver --version'
