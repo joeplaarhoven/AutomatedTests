@@ -27,7 +27,8 @@ pipeline {
           sh 'mkdir neoload-cli && cd neoload-cli'
           git 'https://github.com/Neotys-Labs/neoload-cli'
           sh 'pip install neoload'
-          sh 'neoload login'
+          sh 'export NLW_TOKEN = c6f47a52a29cbf5372026818a51e560750f3ab533f57fa57'
+          sh 'neoload login $NLW_TOKEN'
           sh 'neoload run --scenario sanityScenario'
 //           neoloadRun project: '/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test/Tricentis.nlp', displayGui: 'true', scenario: 'sanityScenario', trendGraphs: ['AvgResponseTime', 'ErrorRate']
         }
