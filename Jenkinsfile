@@ -23,7 +23,7 @@ pipeline {
     stage('Performance test') {
       agent { docker { image 'maven' } }
       steps {
-        dir("${pwd}/api_test"){
+        dir("${pwd}/performance_test"){
           sh "neoload run --as-code performance_test/performancetest.yaml"
         }
       }
