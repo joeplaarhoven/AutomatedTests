@@ -15,7 +15,7 @@ populations:
 - name: pop1
   user_paths:
   - name: performance_test
-  scenarios:
+scenarios:
 - name: sanityScenario
   populations:
   - name: pop1
