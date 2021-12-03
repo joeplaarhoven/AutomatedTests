@@ -1,0 +1,27 @@
+name: Performance Test
+sla_profiles:
+- name: performance_test_sla
+  thresholds:
+  - avg-resp-time warn >= 200ms fail >= 300ms per interval
+user_paths:
+- name: performance_test
+  actions:
+    steps:
+    - request:
+        url: http://demowebshop.tricentis.com/Plugins/Misc.WebServicesCustomer/Remote/NopService.svc?wsdl
+        sla_profile: performance_test_sla
+    - delay: 1s
+populations:
+- name: pop1
+  user_paths:
+  - name: performance_test
+  scenarios:
+- name: sanityScenario
+  populations:
+  - name: pop1
+    rampup_load:
+      min_users: 1
+      max_users: 5
+      increment_users: 1
+      increment_every: 20s
+      duration: 2m

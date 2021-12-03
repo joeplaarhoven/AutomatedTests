@@ -20,8 +20,9 @@ pipeline {
       }
     }
     stage('Performance test') {
+      agent { docker { image 'neotys/neoload-controller' } }
       steps {
-       echo "Performance test"
+       sh "neoload run --as-code performance_test/performancetest.yaml"
       }
     }
     stage('GUI test') {
