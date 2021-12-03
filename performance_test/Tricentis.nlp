@@ -1,0 +1,14 @@
+# Project description file
+
+project.name=Tricentis
+project.version=8.3
+project.original.version=8.3
+product.name=NeoLoad
+product.original.name=NeoLoad
+product.original.version=7.11.1
+project.is-open-test-settings-after-upload=false
+project.id=92782bc0-4d91-4f26-8a90-5391c4dc5cdc
+project.config.path=config.zip
+project.config.storage=ZIP
+team.server.enabled=false
+product.version=7.11.1
