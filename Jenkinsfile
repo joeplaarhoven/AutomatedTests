@@ -23,7 +23,7 @@ pipeline {
     stage('Performance test') {
       agent { docker { image 'python' } }
       environment {
-                  NLW_TOKEN = "c6f47a52a29cbf5372026818a51e560750f3ab533f57fa57"
+                  NLW_TOKEN = "0c9c7b4c0f77a56f08a931e2346a6319cc5af0d7921f8e65"
                 }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
