@@ -1,28 +1,31 @@
 pipeline {
   agent none
-  stages {
-    stage('Unit test') {
-    agent { docker { image 'maven' } }
-      steps{
-        dir("${pwd}/unit_test"){
-          sh 'mvn jacoco:report'
-        }
-      }
-    }
-    stage('API test') {
-      agent { docker { image 'node:14-alpine' } }
-      steps {
-        dir("${pwd}/api_test"){
-          sh 'npm install -g newman'
-          sh 'npm install -g newman-reporter-htmlextra'
-          sh 'newman run NopService.postman_collection.json --reporters=cli,htmlextra'
-        }
-      }
-    }
+//   stages {
+//     stage('Unit test') {
+//     agent { docker { image 'maven' } }
+//       steps{
+//         dir("${pwd}/unit_test"){
+//           echo pwd()
+//           sh 'mvn jacoco:report'
+//         }
+//       }
+//     }
+//     stage('API test') {
+//       agent { docker { image 'node:14-alpine' } }
+//       steps {
+//         dir("${pwd}/api_test"){
+//           sh 'npm install -g newman'
+//           sh 'npm install -g newman-reporter-htmlextra'
+//           sh 'newman run NopService.postman_collection.json --reporters=cli,htmlextra'
+//         }
+//       }
+//     }
     stage('Performance test') {
       agent { docker { image 'neotys/neoload-controller' } }
       steps {
-       sh "neoload run --as-code performance_test/performancetest.yaml"
+        dir("${pwd}/api_test"){
+          sh "neoload run --as-code performance_test/performancetest.yaml"
+        }
       }
     }
     stage('GUI test') {
