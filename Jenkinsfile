@@ -44,7 +44,6 @@ pipeline {
       steps {
 //         sh 'docker run --name katalonguitest -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath="/var/jenkins_home/workspace/AutomatedTests_master@2/gui_test/DemoWebshopGUITest.prj" -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="GUI_Test_Suite" -apiKey=909a5194-ea06-4745-8a5e-59a676c786f3'
 //          sh 'docker cp /var/jenkins_home/workspace/AutomatedTests_master@2/gui_test/chromedriver '
-        sh 'cp -rf /var/jenkins_home/workspace/AutomatedTests_master@2/gui_test/chromedriver /opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver'
         sh '/opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver --version'
         sh 'katalonc  -projectPath="/var/jenkins_home/workspace/AutomatedTests_master@2/gui_test/DemoWebshopGUITest.prj" -browserType="Chrome (headless)" -testSuitePath="GUI_Test_Suite" -apiKey="909a5194-ea06-4745-8a5e-59a676c786f3" '
       }
