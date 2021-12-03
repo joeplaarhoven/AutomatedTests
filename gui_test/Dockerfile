@@ -1,2 +1,0 @@
-FROM katalonstudio/katalon
-COPY /var/jenkins_home/workspace/AutomatedTests_master@2/gui_test/chromedriver /opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver
