@@ -27,7 +27,6 @@ pipeline {
           environment {
             NLW_TOKEN = "c6f47a52a29cbf5372026818a51e560750f3ab533f57fa57"
           }
-
           sh 'mkdir neoload-cli && cd neoload-cli'
           git 'https://github.com/Neotys-Labs/neoload-cli'
           sh 'pip install neoload'
