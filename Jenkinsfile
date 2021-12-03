@@ -21,7 +21,7 @@ pipeline {
 //       }
 //     }
     stage('Performance test') {
-      agent { docker { image 'neotys/neoload-web-test-launcher' } }
+      agent { docker { image 'python' } }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
           sh 'mkdir neoload-cli && cd neoload-cli'
