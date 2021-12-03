@@ -33,11 +33,9 @@ pipeline {
           sh 'neoload login $NLW_TOKEN'
           sh 'cd ..'
           sh 'neoload project -p performancetest.yaml upload performance-test'
-          sh '''docker run -p 7100:7100 \
-                      -e NEOLOADWEB_TOKEN=$NLW_TOKEN \
-                      -e ZONE=Uy1ss \
-                      -e LG_PORT=7100 \
-                      neotys/neoload-loadgenerator'''
+          withDockerContainer(args: '-p 7100:7100 -e NEOLOADWEB_TOKEN=$NLW_TOKEN -e ZONE=Uy1ss -e LG_PORT=7100', image: 'neotys/neoload-loadgenerator') {
+              // some block
+          }
           sh 'neoload run --scenario sanityScenario'
 //           neoloadRun project: '/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test/Tricentis.nlp', displayGui: 'true', scenario: 'sanityScenario', trendGraphs: ['AvgResponseTime', 'ErrorRate']
         }
