@@ -24,6 +24,9 @@ pipeline {
       agent { docker { image 'neotys/neoload-web-test-launcher' } }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
+          sh 'git clone https://github.com/Neotys-Labs/neoload-cli && cd neoload-cli'
+          sh 'pip install neoload'
+          sh 'neoload'
           neoloadRun project: '/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test/Tricentis.nlp', displayGui: 'true', scenario: 'sanityScenario', trendGraphs: ['AvgResponseTime', 'ErrorRate']
         }
       }
