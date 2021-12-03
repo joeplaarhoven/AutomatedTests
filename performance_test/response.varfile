@@ -1,0 +1,13 @@
+# install4j response file for NeoLoad Controller
+executeLauncherAction$Boolean=false
+installService$Boolean=false
+startOnBootUp$Boolean=false
+sys.adminRights$Boolean=false
+sys.component.Common$Boolean=true
+sys.component.Controller$Boolean=true
+sys.component.Controller\ Agent$Boolean=false
+sys.component.Load\ Generator$Boolean=false
+sys.component.Monitor\ Agent$Boolean=false
+sys.installationTypeId=Controller
+sys.languageId=en
+sys.programGroupDisabled$Boolean=true
