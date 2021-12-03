@@ -21,7 +21,7 @@ pipeline {
 //       }
 //     }
     stage('Performance test') {
-      agent { docker { image 'maven' } }
+      agent { docker { image 'neotys/neoload-controller' } }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
           sh "neoload run --as-code performance_test/performancetest.yaml"
