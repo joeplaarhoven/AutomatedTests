@@ -33,7 +33,7 @@ pipeline {
           sh 'pip install neoload'
           sh 'neoload login $NLW_TOKEN'
           sh 'cd ..'
-          sh 'neoload project upload -p performancetest.yaml'
+          sh 'neoload project -p performancetest.yaml upload performance-test'
           sh 'neoload run --scenario sanityScenario'
 //           neoloadRun project: '/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test/Tricentis.nlp', displayGui: 'true', scenario: 'sanityScenario', trendGraphs: ['AvgResponseTime', 'ErrorRate']
         }
