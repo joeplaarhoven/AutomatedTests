@@ -24,10 +24,9 @@ pipeline {
       agent { docker { image 'python' } }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
-            environment {
-              NLW_TOKEN = "c6f47a52a29cbf5372026818a51e560750f3ab533f57fa57"
-               = ""
-            }
+          environment {
+            NLW_TOKEN = "c6f47a52a29cbf5372026818a51e560750f3ab533f57fa57"
+          }
 
           sh 'mkdir neoload-cli && cd neoload-cli'
           git 'https://github.com/Neotys-Labs/neoload-cli'
