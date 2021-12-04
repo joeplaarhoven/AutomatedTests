@@ -23,7 +23,7 @@ pipeline {
         agent { docker { image 'justb4/jmeter' } }
         steps {
             dir("/var/jenkins_home/workspace/AutomatedTests_master@3/performance_test"){
-                sh 'jmeter -n -t Test_Plan.jmx'
+                sh 'jmeter -n -t Test_Plan.jmx -l jmeter.jtl'
             }
         }
     }
