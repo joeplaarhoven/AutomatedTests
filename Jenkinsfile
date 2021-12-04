@@ -39,6 +39,8 @@ pipeline {
           sh 'pip install neoload'
           sh 'neoload login $NLW_TOKEN'
           sh 'cd ..'
+          sh 'pwd'
+          sh 'ls'
           sh 'neoload project -p performancetest.yaml upload performance-test'
 
           sh 'neoload run --scenario sanityScenario'
