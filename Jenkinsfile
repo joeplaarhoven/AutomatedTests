@@ -34,7 +34,6 @@ pipeline {
                 }
       steps {
         dir("/var/jenkins_home/workspace/AutomatedTests_master@3/performance_test"){
-
           sh 'mkdir neoload-cli && cd neoload-cli'
           git 'https://github.com/Neotys-Labs/neoload-cli'
           sh 'pip install neoload'
