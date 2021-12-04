@@ -4,7 +4,7 @@ pipeline {
     stage('Unit test') {
     agent { docker { image 'maven' } }
       steps{
-        dir("${pwd}/unit_test"){
+        dir("/var/jenkins_home/workspace/AutomatedTests_master@3//unit_test"){
           sh 'mvn jacoco:report'
         }
       }
