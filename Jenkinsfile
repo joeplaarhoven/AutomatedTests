@@ -19,6 +19,12 @@ pipeline {
         }
       }
     }
+    stage('Performance test'){
+        agent { docker { image 'justb4/jmeter' } }
+        steps {
+            sh 'jmeter --version'
+        }
+    }
 //     stage('Performance test') {
 //       agent { docker { image 'python' } }
 //       environment {
