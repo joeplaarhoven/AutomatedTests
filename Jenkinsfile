@@ -4,7 +4,7 @@ pipeline {
     stage('Unit test') {
     agent { docker { image 'maven' } }
       steps{
-        dir("/var/jenkins_home/workspace/AutomatedTests_master@3//unit_test"){
+        dir("/var/jenkins_home/workspace/AutomatedTests_master@3/unit_test"){
           sh 'mvn jacoco:report'
         }
       }
@@ -12,7 +12,7 @@ pipeline {
     stage('API test') {
       agent { docker { image 'node:14-alpine' } }
       steps {
-        dir("${pwd}/api_test"){
+        dir("/var/jenkins_home/workspace/AutomatedTests_master@3/api_test"){
           sh 'npm install -g newman'
           sh 'npm install -g newman-reporter-htmlextra'
           sh 'newman run NopService.postman_collection.json --reporters=cli,htmlextra'
