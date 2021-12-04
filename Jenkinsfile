@@ -33,7 +33,7 @@ pipeline {
                   NLW_TOKEN = "0c9c7b4c0f77a56f08a931e2346a6319cc5af0d7921f8e65"
                 }
       steps {
-        dir("/var/jenkins_home/workspace/AutomatedTests_master@2/performance_test"){
+        dir("/var/jenkins_home/workspace/AutomatedTests_master@3/performance_test"){
 
           sh 'mkdir neoload-cli && cd neoload-cli'
           git 'https://github.com/Neotys-Labs/neoload-cli'
